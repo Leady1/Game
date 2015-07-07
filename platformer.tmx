@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="80" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="More tiles" tilewidth="16" tileheight="16">
+  <tileoffset x="5" y="0"/>
+  <image source="../../Downloads/Pirate.png" width="206" height="181"/>
+ </tileset>
+ <tileset firstgid="133" name="Level Tiles" tilewidth="16" tileheight="16">
+  <image source="../../Downloads/sprites_6.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="197" name="Level tiles 2" tilewidth="32" tileheight="32">
+  <image source="../../Downloads/fixed.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="80" height="80">
+  <data encoding="base64" compression="zlib">
+   eJztmNEOgjAMRfn/J3/CJ5+M78ZPMyYal9qtLYNR8JzkxiAK49iVyTQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAVu5bD2Bjzu/I7Uj+BXnNr9frO9p7nhzRX61GPm48/i6OZPEXmUPa97RoNaIdR9vegz/Li2eutOZazzWWx83sz/JyKxL119ujZB1n8tdyV+6/TXb9rX2P1PrB1v7KcdX2lc4yrBNkb83gr7Uvg7Ma1vxZ+lzZfcxBroXWPk+WtdKSjKiJI/sbAf76qN1LZR5Kjtg3o3jWuC1//1631v/JLfy11tfZat7rr/UcIPr8wDsmrS9nq3mPv8iztsf0W5/yM5ZTq/68xxmB5c+blj/P71HrETJWvx7tcbS/aI+V8c6Xj8NThxsPGfx5+qz2fMB7vDXJ4i/aayNjWpNM/pYO/vCHP/y1wF8fS/ubs9bA33e8c9YZ+MsZ/OEPf/sN/vCHv/0Gf/jD334z0t9R87q+J/BCSLQ=
+  </data>
+ </layer>
+</map>
