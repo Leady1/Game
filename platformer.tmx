@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="80" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" name="More tiles" tilewidth="16" tileheight="16">
-  <tileoffset x="5" y="0"/>
-  <image source="../../Downloads/Pirate.png" width="206" height="181"/>
- </tileset>
- <tileset firstgid="133" name="Level Tiles" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Level Tiles" tilewidth="16" tileheight="16">
   <image source="../../Downloads/sprites_6.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="197" name="Level tiles 2" tilewidth="32" tileheight="32">
-  <image source="../../Downloads/fixed.png" width="256" height="256"/>
  </tileset>
  <layer name="Tile Layer 1" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJztmNEOgjAMRfn/J3/CJ5+M78ZPMyYal9qtLYNR8JzkxiAK49iVyTQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAVu5bD2Bjzu/I7Uj+BXnNr9frO9p7nhzRX61GPm48/i6OZPEXmUPa97RoNaIdR9vegz/Li2eutOZazzWWx83sz/JyKxL119ujZB1n8tdyV+6/TXb9rX2P1PrB1v7KcdX2lc4yrBNkb83gr7Uvg7Ma1vxZ+lzZfcxBroXWPk+WtdKSjKiJI/sbAf76qN1LZR5Kjtg3o3jWuC1//1631v/JLfy11tfZat7rr/UcIPr8wDsmrS9nq3mPv8iztsf0W5/yM5ZTq/68xxmB5c+blj/P71HrETJWvx7tcbS/aI+V8c6Xj8NThxsPGfx5+qz2fMB7vDXJ4i/aayNjWpNM/pYO/vCHP/y1wF8fS/ubs9bA33e8c9YZ+MsZ/OEPf/sN/vCHv/0Gf/jD334z0t9R87q+J/BCSLQ=
+   eJztmEmOwyAUBX2VrLJqZd/q+5+rFSko6Iv5mcG4SvqL2A6E5wIRnsdxPDvW7rw61+70dA//8C8H/mngnwb+aeCfBvlpMH818E8D/zTwTwP/NPBPA/808E8D/zTwTwP/NPBPA/80yE+D+auBfxr4p4F/GvingX8a+KeBfxr4p4F/GvingX8a+KeBfxrkp8H81cC/dn6Pe/v3+JT9XFN38c8fs/v886nQtZJ6P7+bfyFH3PVYVvZaiRfue7P9q5lDuZxcWUfs86m+a/Ob4V8ul9hcKXnOH3/oezn8dlf1LzR37D3/HdTml8q9BOvxSv6lsvPvv468f6XVSmg9WMW/2LhsvmoGZ2DX1hXWv5LfuiL2/fb2b/U8WvD3Qr39U9bxlRn1/2PX/BzkpzFy/sbqL1BXWTdH+Zfa38byu4K3I/xLZTs6v9T+usX5Ef7l8kudA9SeH+SInS/492rym+1fzVlbyE/7TC7TnH+l7Thm+lfTRiy/kvcRWyNia0aqHZvjTP/Ozq92jY3ll5svfoY7+de6zobOB0rb292/3NxOnb+W/KY7+NdrXHfyr1d++Id/+Hfd/K7kX8teA/++7bTsM/Bvzbqaf6sV/p2T34h+Zo+1Z374p+U3op/ZY+2ZH/5p+Y3oZ/ZYe+aHf1p+I/qZPdae+Y3wb9d65/cP1s47ww==
   </data>
  </layer>
 </map>
