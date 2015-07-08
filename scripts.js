@@ -1,5 +1,7 @@
 var game = new Phaser.Game(912,600,Phaser.AUTO,"platformer",{preload: preload, create: create,update: update});
 var character;
+var layer;
+game.physics.arcade.collide(character, layer);
  
 function preload()
 {
@@ -12,30 +14,56 @@ function preload()
  
 function create()
 {
+    game.physics.startSystem(Phaser.Physics.ARCADE)
     var map = game.add.tilemap("Level", 16, 16);
     map.addTilesetImage("Level Tiles");
 var layer = map.createLayer(0);
     layer.resizeWorld();
+    map.setCollisionBetween(32, 56);
     character= game.add.sprite(1264, 944, "Character");
      game.camera.follow(character);
-     
-      character.animations.add("walk",[0, 1, 2, 3,])
-      if(game.input.keyboard.isDown(Phaser.Keyboard.A))   
- character.animations.play('walk', 20, true);
-
+      character.animations.add("walk",[3,4,5])
+     character.animations.add("idle",[0])
+     character.animations.add("jump",[5])
+      game.physics.arcade.enable(character);
+      character.body.gravity.y = 300;
+       
     
 } 
 function update()
 {
+    game.physics.arcade.collide(character, layer);
+    var isKeyPressed = false
     if (game.input.keyboard.isDown(Phaser.Keyboard.D))
-        character.x = character.x + 5;
-  if(game.input.keyboard.isDown(Phaser.Keyboard.A))   
- character.animations.play('walk', 20, true);
+{
+    character.x = character.x + 1;
+    isKeyPressed = true
+    character.scale.set(1,1);
+    character.animations.play('walk', 10, true);
+} 
     if (game.input.keyboard.isDown(Phaser.Keyboard.A))
-        character.x = character.x - 5;
+{        
+    character.x = character.x - 1;
+    character.animations.play('walk', 10, true);
+    character.scale.set(-1, 1);
+    isKeyPressed = true
+}
     if (game.input.keyboard.isDown(Phaser.Keyboard.W))
-        character.y = character.y - 16 ;
-        
+{
+    character.y = character.y - 1 ;
+    isKeyPressed = true
+     character.animations.play("jump",20,true)
+}
     if (game.input.keyboard.isDown(Phaser.Keyboard.S))
-        character.y = character.y + 16 ; 
+{
+    character.y = character.y + 1 ; 
+     character.animations.play("jump",20,true)
+    isKeyPressed = true
+}
+    if (isKeyPressed == false)
+{
+    character.animations.play('idle', 20, true);
+}
+
+character.body.gravity.y = 300;
 }
