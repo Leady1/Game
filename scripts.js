@@ -1,7 +1,8 @@
 var game = new Phaser.Game(912,600,Phaser.AUTO,"platformer",{preload: preload, create: create,update: update});
 var character;
 var layer;
- 
+var lava 
+var map
 function preload()
 {
     game.stage.backgroundColor = "#451100";
@@ -14,11 +15,11 @@ function preload()
 function create()
 {
     game.physics.startSystem(Phaser.Physics.ARCADE)
-    var map = game.add.tilemap("Level", 16, 16);
+    map = game.add.tilemap("Level", 16, 16);
     map.addTilesetImage("Level Tiles");
     layer = map.createLayer(0);
     layer.resizeWorld();
-    map.setCollisionBetween(32, 56);
+    map.setCollisionBetween(32,56);
     character= game.add.sprite(1272, 944, "Character");
     game.camera.follow(character);
     character.animations.add("walk",[3,4,5])
@@ -28,11 +29,15 @@ function create()
     character.anchor.y = 1;
     game.physics.arcade.enable(character);
     character.body.gravity.y = 300;
-       
+    Phaser.Physics.Arcade.Body
+    {
+    character.body.setSize (8, 16, 1)
+    }
     
 } 
 function update()
 {
+    var currentTile = map.getTile(character.x / 16, character.y / 16);
     game.physics.arcade.collide(character, layer);
     var isKeyPressed = false
     if (game.input.keyboard.isDown(Phaser.Keyboard.D))
@@ -65,6 +70,7 @@ function update()
     character.body.velocity.x = 0
     character.animations.play('idle', 20, true);
 }
+   
 }
 
 
