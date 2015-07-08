@@ -29,15 +29,18 @@ function create()
     character.anchor.y = 1;
     game.physics.arcade.enable(character);
     character.body.gravity.y = 300;
-    Phaser.Physics.Arcade.Body
-    {
+   
+    
     character.body.setSize (8, 16, 1)
-    }
+    
     
 } 
 function update()
 {
-    var currentTile = map.getTile(character.x / 16, character.y / 16);
+   var tileX = Math.floor(character.x / 16);
+var tileY = Math.floor(character.y / 16);
+
+var currentTile = map.getTile(tileX, tileY);
     game.physics.arcade.collide(character, layer);
     var isKeyPressed = false
     if (game.input.keyboard.isDown(Phaser.Keyboard.D))
@@ -70,8 +73,33 @@ function update()
     character.body.velocity.x = 0
     character.animations.play('idle', 20, true);
 }
+if (currentTile != null)
+{
+    if (currentTile.index == 60)
+    {
+        onTouchLava();
+    }
+    if (currentTile.index == 57)
+    {
+        finish()
+    }    
+}
+
    
 }
 
 
-
+function onTouchLava()
+{
+    character.body.velocity.y=0
+     character.body.velocity.x=0
+     character.x = 1272
+     character.y = 944
+}
+function finish()
+{
+    character.body.velocity.y=0
+     character.body.velocity.x=0
+     character.x = 1272
+     character.y = 944
+}
