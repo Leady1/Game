@@ -33,7 +33,6 @@ function update()
  character.animations.play('walk', 20, true);
     if (game.input.keyboard.isDown(Phaser.Keyboard.A))
         character.x = character.x - 5;
-    if (game.input.keyboard.isDown(Phaser.Keyboard.A))   
     if (game.input.keyboard.isDown(Phaser.Keyboard.W))
         character.y = character.y - 16 ;
         
