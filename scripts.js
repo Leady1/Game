@@ -17,7 +17,7 @@ function create()
     game.physics.startSystem(Phaser.Physics.ARCADE)
     var map = game.add.tilemap("Level", 16, 16);
     map.addTilesetImage("Level Tiles");
-var layer = map.createLayer(0);
+layer = map.createLayer(0);
     layer.resizeWorld();
     map.setCollisionBetween(32, 56);
     character= game.add.sprite(1264, 944, "Character");
@@ -26,7 +26,7 @@ var layer = map.createLayer(0);
      character.animations.add("idle",[0])
      character.animations.add("jump",[5])
       game.physics.arcade.enable(character);
-      character.body.gravity.y = 300;
+      character.body.gravity.y = 10;
        
     
 } 
@@ -36,29 +36,23 @@ function update()
     var isKeyPressed = false
     if (game.input.keyboard.isDown(Phaser.Keyboard.D))
 {
-    character.x = character.x + 1;
+    character.body.velocity.x = 1;
     isKeyPressed = true
     character.scale.set(1,1);
     character.animations.play('walk', 10, true);
 } 
     if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 {        
-    character.x = character.x - 1;
+   character.body.velocity.x = 1;
     character.animations.play('walk', 10, true);
     character.scale.set(-1, 1);
     isKeyPressed = true
 }
     if (game.input.keyboard.isDown(Phaser.Keyboard.W))
 {
-    character.y = character.y - 1 ;
+    character.y = character.y - 3.5 ;
     isKeyPressed = true
      character.animations.play("jump",20,true)
-}
-    if (game.input.keyboard.isDown(Phaser.Keyboard.S))
-{
-    character.y = character.y + 1 ; 
-     character.animations.play("jump",20,true)
-    isKeyPressed = true
 }
     if (isKeyPressed == false)
 {
