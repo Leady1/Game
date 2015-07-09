@@ -84,7 +84,7 @@ if (currentTile != null)
     if (mapName=="Finish")
     {
     var style = { font: "65px Arial", fill: "#FFFFFF", align: "center" };
-    var text = game.add.text(game.world.centerX, game.world.centerY, "\nWell Done!\nYou Have Won", style);
+    var text = game.add.text(game.world.centerX, game.world.centerY, "\nWell Done!\nYou Have Won!", style);
 
     text.anchor.set(0.5);
     }
