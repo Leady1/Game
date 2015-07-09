@@ -11,20 +11,13 @@ function preload()
     game.load.tilemap("Level 2", "level 2.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.spritesheet("Character", "Images/sprites_6.png",16,16,64);
     game.load.image("Level Tiles", "Images/sprites_6.png");
-    game.load.image("sprites_6 ","Images/sprites_6.png");
+
    
 }
  
 function create()
 {
-    game.physics.startSystem(Phaser.Physics.ARCADE)
-    map = game.add.tilemap("Level", 16, 16);
-    map.addTilesetImage("Level Tiles");
-    map2 = game.add.tilemap("Level 2", 16, 16);
-    map2.addTilesetImage("sprites_6");
-    layer = map.createLayer(0);
-    layer.resizeWorld();
-    map.setCollisionBetween(32,56);
+    game.physics.startSystem(Phaser.Physics.ARCADE)   
     character= game.add.sprite(1272, 944, "Character");
     game.camera.follow(character);
     character.animations.add("walk",[3,4,5])
@@ -35,6 +28,7 @@ function create()
     game.physics.arcade.enable(character);
     character.body.gravity.y = 500;
     character.body.setSize (5.9, 16, 1)
+    changeLevel("Level");
     
     
 } 
@@ -42,7 +36,7 @@ function update()
 {
    var tileX = Math.floor(character.x / 16);
 var tileY = Math.floor(character.y / 16);
-
+character.body.collideWorldBounds = true;
 var currentTile = map.getTile(tileX, tileY);
     game.physics.arcade.collide(character, layer);
     var isKeyPressed = false
@@ -56,7 +50,7 @@ var currentTile = map.getTile(tileX, tileY);
     if (game.input.keyboard.isDown(Phaser.Keyboard.A))
 {        
    character.body.velocity.x = -100;
-    character.animations.play('walk', 10, true);
+    character.animations.play('walk',15, true);
     character.scale.set(-1, 1);
     isKeyPressed = true
 }
@@ -93,16 +87,44 @@ if (currentTile != null)
 
 function onTouchLava()
 {
+    if (mapName == "Level")
+    {
      character.body.velocity.y=0
      character.body.velocity.x=0
      character.x = 1272
      character.y = 944
+    }
+    
+    if (mapName == "Level 2")
+    {
+        character.body.velocity.y=0
+     character.body.velocity.x=0
+     character.x = 1064
+     character.y = 1080
+    }
 }
 function finish()
 {
-     game.world.remove(map, true);
+     layer.destroy(true);
      character.body.velocity.y=0
      character.body.velocity.x=0
-     character.x = 1272
-     character.y = 944
+     character.x = 1064
+     character.y = 1080
+     changeLevel("Level 2");
+}
+function changeLevel(newLevelName)
+{
+    if (map != null)
+    {
+        layer.destroy(true);
+    }
+
+    map = game.add.tilemap(newLevelName, 16, 16);
+    map.addTilesetImage("Level Tiles");
+
+    map.setCollisionBetween(32,56);
+
+    layer = map.createLayer( 0 );
+    layer.resizeWorld();
+    mapName = newLevelName;
 }
