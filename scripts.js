@@ -1,14 +1,17 @@
 var game = new Phaser.Game(912,600,Phaser.AUTO,"platformer",{preload: preload, create: create,update: update});
 var character;
 var layer;
-var lava 
-var map
+var lava; 
+var map;
+var map2;
 function preload()
 {
     game.stage.backgroundColor = "#451100";
     game.load.tilemap("Level", "level.json", null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap("Level 2", "level 2.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.spritesheet("Character", "Images/sprites_6.png",16,16,64);
     game.load.image("Level Tiles", "Images/sprites_6.png");
+    game.load.image("sprites_6 ","Images/sprites_6.png");
    
 }
  
@@ -17,6 +20,8 @@ function create()
     game.physics.startSystem(Phaser.Physics.ARCADE)
     map = game.add.tilemap("Level", 16, 16);
     map.addTilesetImage("Level Tiles");
+    map2 = game.add.tilemap("Level 2", 16, 16);
+    map2.addTilesetImage("sprites_6");
     layer = map.createLayer(0);
     layer.resizeWorld();
     map.setCollisionBetween(32,56);
@@ -26,12 +31,10 @@ function create()
     character.animations.add("idle",[0])
     character.animations.add("jump",[5])
     character.anchor.x = 0.5;
-    character.anchor.y = 1;
+    character.anchor.y = 0.5;
     game.physics.arcade.enable(character);
-    character.body.gravity.y = 300;
-   
-    
-    character.body.setSize (8, 16, 1)
+    character.body.gravity.y = 500;
+    character.body.setSize (5.9, 16, 1)
     
     
 } 
@@ -79,26 +82,26 @@ if (currentTile != null)
     {
         onTouchLava();
     }
-    if (currentTile.index == 57)
+    if (currentTile.index == 58)
     {
-        finish()
+        finish();
     }    
 }
 
    
 }
 
-
 function onTouchLava()
 {
-    character.body.velocity.y=0
+     character.body.velocity.y=0
      character.body.velocity.x=0
      character.x = 1272
      character.y = 944
 }
 function finish()
 {
-    character.body.velocity.y=0
+     game.world.remove(map, true);
+     character.body.velocity.y=0
      character.body.velocity.x=0
      character.x = 1272
      character.y = 944
