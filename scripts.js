@@ -41,11 +41,7 @@ function create()
         controls.anchor.set(0.5);
         
         }
-         if (mapName=="Level 2")
-        {
-             controls.destroy();
-             beware.destroy();
-        } 
+        
     }
 function update()
 {
@@ -140,6 +136,8 @@ function finish()
      character.x = 1064
      character.y = 1080
      changeLevel("Level 2");
+     controls.destroy();
+beware.destroy();
      
          
      } else {
