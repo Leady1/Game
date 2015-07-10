@@ -5,6 +5,8 @@ var lava;
 var map;
 var map2;
 var mapName;
+var beware
+var controls
 function preload()
     {
         game.stage.backgroundColor = "#451100";
@@ -32,15 +34,19 @@ function create()
         if (mapName=="Level")
         {
               var font = { font: "30px Arial", fill: "#FFFFFF", align: "center" };
-        var controls = game.add.text(1000 , 1050, "Controls:\nW to jump\nA to walk left\n D to walk right", font);
+        controls = game.add.text(1000 , 1050, "Controls:\nW to jump\nA to walk left\n D to walk right", font);
         controls.anchor.set(0.5);
         var text = { font: "15px Arial", fill: "#FFFFFF", align: "center" };
-        var beware = game.add.text(940 , 940, "Beware! Dont fall in!", text);
+        beware = game.add.text(940 , 940, "Beware! Dont fall in!", text);
         controls.anchor.set(0.5);
         
         }
-    } 
-
+         if (mapName=="Level 2")
+        {
+             controls.destroy();
+             beware.destroy();
+        } 
+    }
 function update()
 {
         var tileX = Math.floor(character.x / 16);
