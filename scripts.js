@@ -5,6 +5,8 @@ var lava;
 var map;
 var map2;
 var mapName;
+
+
 function preload()
 {
     game.stage.backgroundColor = "#451100";
@@ -14,8 +16,6 @@ function preload()
     game.load.tilemap("Finish", "Finish.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.spritesheet("Character", "Images/sprites_6.png",16,16,64);
     game.load.image("Level Tiles", "Images/sprites_6.png");
-
-   
 }
  
 function create()
@@ -23,12 +23,14 @@ function create()
     if (game.input.keyboard.isDown(Phaser.Keyboard.null))
     {
        changeLevel("Title")
-} 
+        game.camera.center
+    } 
 }
 function update()
 {
- if (game.input.keyboard.isDown(Phaser.Keyboard.p))
-    {game.physics.startSystem(Phaser.Physics.ARCADE)   
+ if (game.input.keyboard.isDown(Phaser.Keyboard.P))
+    {
+    game.physics.startSystem(Phaser.Physics.ARCADE)   
     character= game.add.sprite(1272, 944, "Character");
     game.camera.follow(character);
     character.animations.add("walk",[3,4,5])
@@ -40,8 +42,6 @@ function update()
     character.body.gravity.y = 500;
     character.body.setSize (5.9, 16, 1)
     changeLevel("Title");
-    } 
-{
     var tileX = Math.floor(character.x / 16);
     var tileY = Math.floor(character.y / 16);
     character.body.collideWorldBounds = true;
@@ -154,6 +154,7 @@ function finish()
      
      }     
     
+    }
     }
 function changeLevel(newLevelName)
 {
