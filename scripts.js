@@ -8,6 +8,7 @@ var mapName;
 function preload()
 {
     game.stage.backgroundColor = "#451100";
+    game.load.tilemap("Title", "Title.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap("Level", "level.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap("Level 2", "level 2.json", null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap("Finish", "Finish.json", null, Phaser.Tilemap.TILED_JSON);
@@ -19,7 +20,15 @@ function preload()
  
 function create()
 {
-    game.physics.startSystem(Phaser.Physics.ARCADE)   
+    if (game.input.keyboard.isDown(Phaser.Keyboard.null))
+    {
+       changeLevel("Title")
+    }
+    
+
+function update(){
+   if (game.input.keyboard.isDown(Phaser.Keyboard.p))
+    {game.physics.startSystem(Phaser.Physics.ARCADE)   
     character= game.add.sprite(1272, 944, "Character");
     game.camera.follow(character);
     character.animations.add("walk",[3,4,5])
@@ -31,9 +40,7 @@ function create()
     character.body.gravity.y = 500;
     character.body.setSize (5.9, 16, 1)
     changeLevel("Level");
-} 
-
-function update()
+    }
 {
     var tileX = Math.floor(character.x / 16);
     var tileY = Math.floor(character.y / 16);
@@ -112,6 +119,8 @@ function onTouchLava()
     }
 }
 function finish()
+    
+    
     {
          
         if (mapName == "Level")
