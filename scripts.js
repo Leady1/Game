@@ -23,11 +23,11 @@ function create()
     if (game.input.keyboard.isDown(Phaser.Keyboard.null))
     {
        changeLevel("Title")
-    }
-    
-
-function update(){
-   if (game.input.keyboard.isDown(Phaser.Keyboard.p))
+} 
+}
+function update()
+{
+ if (game.input.keyboard.isDown(Phaser.Keyboard.p))
     {game.physics.startSystem(Phaser.Physics.ARCADE)   
     character= game.add.sprite(1272, 944, "Character");
     game.camera.follow(character);
@@ -39,8 +39,8 @@ function update(){
     game.physics.arcade.enable(character);
     character.body.gravity.y = 500;
     character.body.setSize (5.9, 16, 1)
-    changeLevel("Level");
-    }
+    changeLevel("Title");
+    } 
 {
     var tileX = Math.floor(character.x / 16);
     var tileY = Math.floor(character.y / 16);
@@ -96,7 +96,7 @@ if (currentTile != null)
     text.anchor.set(0.5);
     }
 }
-
+}
    
 }
 
@@ -119,8 +119,16 @@ function onTouchLava()
     }
 }
 function finish()
-    
-    
+    {
+         if (mapName == "Title")
+    {     
+     layer.destroy(true);
+     character.body.velocity.y=0
+     character.body.velocity.x=0
+     character.x = 1272
+     character.y = 944
+     changeLevel("Level");
+    }
     {
          
         if (mapName == "Level")
