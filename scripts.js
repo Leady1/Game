@@ -34,6 +34,10 @@ function create()
               var font = { font: "30px Arial", fill: "#FFFFFF", align: "center" };
         var controls = game.add.text(1000 , 1050, "Controls:\nW to jump!\nA to walk left\n D to walk right", font);
         controls.anchor.set(0.5);
+        var text = { font: "15px Arial", fill: "#FFFFFF", align: "center" };
+        var beware = game.add.text(940 , 940, "Beware! Dont fall in!", text);
+        controls.anchor.set(0.5);
+        
         }
     } 
 
